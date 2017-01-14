@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/swiper.min.css"/>
+    <link rel="stylesheet" href="css/animate.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+    <style type="text/css">
+        html{
+            font-size: 100px;
+        }
+    </style>
+    <script>
+        //REM适配
+        ~(function(desW){
+            var winW = document.documentElement.clientWidth;
+            var n = winW/desW;
+            document.documentElement.style.fontSize = n*100+"px";
+        })(640);
+
+    </script>
+</head>
+<body>
+<div class="main">
+    <div class="music">
+        <audio src="audio/zzz.mp3" loop preload="none" id="audioMusic"></audio>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1" >
+                <div class="bg1">
+                    <img src="img/第一页/个.png" alt="">
+                    <img src="img/第一页/人.png" alt="">
+                    <img src="img/第一页/简.png" alt="">
+                    <img src="img/第一页/历.png" alt="">
+                    <img src="img/第一页/个字.png" alt="">
+                    <img src="img/第一页/人字.png" alt="">
+                    <img src="img/第一页/简字.png" alt="">
+                    <img src="img/第一页/历字.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide2" >
+                <div class="bg1">
+                    <img src="img/第二页/1.png" alt="">
+                    <span>
+                        <i>基本信息</i>
+                        <i>essential information</i>
+                    </span>
+                    <span>姓名：侯纪忠</span>
+                    <span>性别：男</span>
+                    <span>年龄：24</span>
+                    <span>邮箱：1752592756@qq.com</span>
+                    <span>手机：18330689976</span>
+                    <img src="img/第二页/2.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide3" >
+                <div class="bg1">
+                    <img src="img/第三页/1.png" alt="">
+                    <span>
+                        <i>求职意向</i>
+                        <i>job intension</i>
+                    </span>
+                    <img src="img/第三页/2.png" alt="">
+                    <span>Web前端</span>
+                    <img  src="img/第三页/3.png" alt="">
+                    <span>js工程师</span>
+                    <img  src="img/第三页/2.png" alt="">
+                    <span>h5</span>
+                    <img  src="img/第三页/3.png" alt="">
+                    <span>小程序</span>
+                    <div>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                        <i class="last"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slide4" >
+                <div class="bg1">
+                    <img src="img/第四页/1.png" alt="">
+                    <img src="img/第四页/2.png" alt="">
+                    <span>掌握技能</span>
+                    <span>Master the skill</span>
+                    <div>
+                        <span>HTML5</span>
+                        <i></i>
+                        <div>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span>CSS3</span>
+                        <i></i>
+                        <div>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </div>
+                    <div>
+                        <span>JS</span>
+                        <i></i>
+                        <div>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+
+
+                    </div>
+                    <div>
+                        <span>NODE</span>
+                        <i></i>
+                        <div>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide slide5" >
+                <div class="bg1">
+                    <img src="img/第五页/4.png" alt="">
+                    <img src="img/第五页/3.png" alt="">
+                    <img src="img/第五页/weixin.png" alt="">
+                    <span>联系方式</span>
+                    <span>Contact information</span>
+                    <span>扫描微信二维码添加我好友</span>
+                    <span>姓名:侯纪忠</span>
+                    <span>联系电话:18330689976</span>
+                    <span>电子邮箱:1752592756@qq.com</span>
+            </div>
+    </div>
+</div>
+    </div>
+</div>
+</body>
+</html>
+<script src="js/swiper.min.js"></script>
+
+<script>
+
+
+    //初始化swiper
+    var mySwiper = new Swiper(".swiper-container",{
+        direction : "vertical",
+        loop:true,
+        onSlideChangeEnd :function(swiper){
+            var slideAry = swiper.slides; /*所有的滑块*/
+            var trueSlideNum = slideAry.length-2;/*真实的滑块的个数*/
+            var lastNum =  trueSlideNum+1;/*最后一个滑块的索引*/
+            /*获得当前滑块的索引*/
+            var curIn = swiper.activeIndex;
+            [].forEach.call(slideAry,function(item,index){
+                item.id = null;
+                if(curIn == index){
+                    /*第一张跟真实滑块最后一张是一样的，最后一张跟真实滑块的第一张是一样*/
+                    switch(curIn){
+                        case 0 :
+                            item.id = "page"+trueSlideNum;
+                            break;
+                        case lastNum :
+                            item.id  = "page1";
+                            break;
+                        default :
+                            item.id = "page"+curIn;
+
+                    }
+                }
+
+            })
+
+        }
+    })
+
+    ~(function(){
+        var music = document.querySelector(".music");
+        var audioMusic = document.querySelector("#audioMusic");
+        music.addEventListener("click",function(){
+            if(audioMusic.paused){/*判断是否是停止*/
+                audioMusic.play();
+                music.className = "music musicMove";
+                return;
+            }
+            audioMusic.pause();
+            music.className = "music";
+            music.style.opacity  = 1;
+        })
+        window.setTimeout(function(){
+            audioMusic.play();/*播放*/
+            /*边播放边缓存，触发事件canplay*/
+            audioMusic.addEventListener("canplay",function(){
+                music.className = "music musicMove";
+            })
+        },1000)
+
+
+    })()
+
+</script>
